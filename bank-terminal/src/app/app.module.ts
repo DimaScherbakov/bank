@@ -4,10 +4,12 @@ import {MatButtonModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
+import { InputCardComponent } from './input-card/input-card.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InputCardComponent
   ],
   imports: [
     BrowserModule,
