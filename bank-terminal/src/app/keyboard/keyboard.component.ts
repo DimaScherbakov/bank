@@ -14,18 +14,7 @@ board = document.getElementById('board');
   }
   controlClick($event):void{
     let target = $event.target;
-
-    while (target != this.board) {
-      if (target.className == 'control') {
-        // console.log(target.getAttribute('value'));
-        // this.keyboardService.number = this.keyboardService.getNumber(target.getAttribute('value'));
-        this.number.emit(target.getAttribute('value'));
-        // console.log(this.keyboardService.number);
-        return ;
-      }
-      target = target.parentNode;
-    }
-
+    this.number.emit(target.getAttribute('value'));
   }
 
 }
