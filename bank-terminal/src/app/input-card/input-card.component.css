@@ -1,8 +1,17 @@
-.example-container {
+.centered-container div {
+  width: 100px;
+  height: 100px;
+}
+.center{
+  margin: 10px auto;
+}
+.main-container{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-form{
   display: flex;
   flex-direction: column;
-}
-
-.example-container > * {
-  width: 100%;
 }

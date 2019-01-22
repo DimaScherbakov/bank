@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-
+import {InputCardService} from './input-card.service';
 @Component({
   selector: 'app-input-card',
   templateUrl: './input-card.component.html',
@@ -10,17 +10,15 @@ export class InputCardComponent implements OnInit {
 
   options: FormGroup;
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, private inputCardService:InputCardService) {
     this.options = fb.group({
       color: 'primary',
-      fontSize: [16, Validators.min(10)],
+      cardId: ['',Validators.pattern("^[0-9]*$")]
     });
   }
-
-  getFontSize() {
-    return Math.max(10, this.options.value.fontSize);
-  }
-
+submit(){
+console.log(this.inputCardService.isIdInDB(this.options.controls.cardId.value));
+}
   ngOnInit() {
   }
 

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {MatButtonModule,MatSelectModule,MatInputModule} from '@angular/material';
+import {MatButtonModule,MatSelectModule,MatInputModule,MatCardModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
 import {AppRoutes} from './app.routing';
@@ -24,7 +24,7 @@ import { InputCardComponent } from './input-card/input-card.component';
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
