@@ -9,11 +9,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { InputCardComponent } from './input-card/input-card.component';
+import { KeyboardComponent } from './keyboard/keyboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InputCardComponent
+    InputCardComponent,
+    KeyboardComponent
   ],
   imports: [
     BrowserModule,
