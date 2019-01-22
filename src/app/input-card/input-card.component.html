@@ -1,0 +1,27 @@
+<div class="main-container">
+  <mat-card class="center" flex="50" >
+    <form class="card-form" [formGroup]="options">
+      <mat-form-field>
+        <input
+          formControlName="cardId"
+          required
+          matInput
+          placeholder="Card ID"
+          maxlength="4"
+        />
+      </mat-form-field>
+      <button
+        class="mat-raised-button mat-accent submit-button"
+        type="submit"
+        mat-button
+        [disabled]="!options.valid"
+        (click)="submit()"
+      >
+        Submit
+      </button>
+
+    </form>
+  </mat-card>
+</div>
+<app-keyboard (number)="showNumber($event)"></app-keyboard>
+
