@@ -6,10 +6,12 @@ import {RouterModule} from '@angular/router';
 import {AppRoutes} from './app.routing';
 
 import { AppComponent } from './app.component';
+import { KeyboardComponent } from './keyboard/keyboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    KeyboardComponent
   ],
   imports: [
     BrowserModule,

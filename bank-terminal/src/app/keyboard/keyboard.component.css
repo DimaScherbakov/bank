@@ -1,0 +1,25 @@
+.main-board{
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  width: 300px;
+  bottom: 25px;
+  height: 400px;
+  background-color: lightgray;
+  outline: 2px solid black;
+}
+
+.controls{
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+}
+.control{
+  flex: 0 0 33.3333%;
+  outline: 1px solid black;
+  text-align: center;
+  height: 100px;
+  line-height: 100px;
+}
