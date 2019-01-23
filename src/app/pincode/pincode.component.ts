@@ -33,12 +33,11 @@ export class PincodeComponent implements OnInit {
   }
   submit() {
     const pinValue = this.options.controls['pin'].value;
-    console.log(pinValue);
     if ( !this.pincodeService.pinExist(pinValue)) {
       this.wrongPin();
       return;
     }
-
+this.router.navigateByUrl('operations');
   }
  showNumber(event) {
     const oldValue = this.options.controls['cardId'].value;

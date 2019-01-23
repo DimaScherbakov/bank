@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {InputCardService} from './input-card.service';
-import {KeyboardService} from '../keyboard/keyboard.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -13,7 +12,7 @@ export class InputCardComponent implements OnInit {
 
   options: FormGroup;
 
-  constructor(fb: FormBuilder, private inputCardService: InputCardService, private keyboardService: KeyboardService,
+  constructor(fb: FormBuilder, private inputCardService: InputCardService,
               private router: Router) {
     this.options = fb.group({
       color: 'primary',

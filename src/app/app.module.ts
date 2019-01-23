@@ -11,13 +11,15 @@ import { AppComponent } from './app.component';
 import { InputCardComponent } from './input-card/input-card.component';
 import { KeyboardComponent } from './keyboard/keyboard.component';
 import { PincodeComponent } from './pincode/pincode.component';
+import { OperationsComponent } from './operations/operations.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputCardComponent,
     KeyboardComponent,
-    PincodeComponent
+    PincodeComponent,
+    OperationsComponent
   ],
   imports: [
     BrowserModule,
