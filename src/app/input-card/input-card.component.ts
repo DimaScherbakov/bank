@@ -9,7 +9,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./input-card.component.css']
 })
 export class InputCardComponent implements OnInit {
-
+lengthData = {
+  maxlength: 16,
+  valueLength: 0
+};
   options: FormGroup;
 
   constructor(fb: FormBuilder, private inputCardService: InputCardService,
@@ -33,6 +36,9 @@ showNumber(event) {
   } else {
     this.options.controls['cardId'].setValue(oldValue + event);
   }
+
+  this.lengthData.valueLength = this.options.controls['cardId'].value.length;
+  this.lengthData['avaliable'] = this.lengthData.maxlength - this.lengthData.valueLength;
 
 }
   ngOnInit() {

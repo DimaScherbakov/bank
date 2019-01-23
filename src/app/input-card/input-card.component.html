@@ -7,7 +7,7 @@
           required
           matInput
           placeholder="Card ID"
-          maxlength="4"
+          [maxlength]="lengthData.maxlength"
         />
       </mat-form-field>
       <button
@@ -23,5 +23,5 @@
     </form>
   </mat-card>
 </div>
-<app-keyboard (number)="showNumber($event)"></app-keyboard>
+<app-keyboard (number)="showNumber($event)" [keyboardAvaliableLength]="lengthData.avaliable || lengthData.maxlength"></app-keyboard>
 

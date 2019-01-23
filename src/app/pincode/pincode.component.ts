@@ -40,11 +40,11 @@ export class PincodeComponent implements OnInit {
 this.router.navigateByUrl('operations');
   }
  showNumber(event) {
-    const oldValue = this.options.controls['cardId'].value;
+    const oldValue = this.options.controls['pin'].value;
     if ( event === 'Cancel') {
-      this.options.controls['cardId'].setValue(oldValue.substring(0, oldValue.length - 1 ) );
+      this.options.controls['pin'].setValue(oldValue.substring(0, oldValue.length - 1 ) );
     } else {
-      this.options.controls['cardId'].setValue(oldValue + event);
+      this.options.controls['pin'].setValue(oldValue + event);
     }
 
   }
