@@ -1,0 +1,30 @@
+<div class="main-container">
+  <mat-card class="center" flex="50" >
+    <form class="card-form" [formGroup]="options">
+      <mat-form-field>
+        <input
+          formControlName="pin"
+          required
+          matInput
+          placeholder="Pin"
+          maxlength="4"
+          type="password"
+        />
+      </mat-form-field>
+      <p class="wrongPinError" *ngIf="options.hasError('wrongPinError')">
+        Pincode is wrong, try again.
+      </p>
+      <button
+        class="mat-raised-button mat-accent submit-button"
+        type="submit"
+        mat-button
+        [disabled]="!options.valid"
+        (click)="submit()"
+      >
+        Submit
+      </button>
+
+    </form>
+  </mat-card>
+</div>
+<app-keyboard (number)="showNumber($event)"></app-keyboard>

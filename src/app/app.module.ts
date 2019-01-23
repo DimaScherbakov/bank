@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {MatButtonModule,MatSelectModule,MatInputModule,MatCardModule } from '@angular/material';
+import {MatButtonModule, MatSelectModule, MatInputModule, MatCardModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
 import {AppRoutes} from './app.routing';
@@ -10,12 +10,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { InputCardComponent } from './input-card/input-card.component';
 import { KeyboardComponent } from './keyboard/keyboard.component';
+import { PincodeComponent } from './pincode/pincode.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputCardComponent,
-    KeyboardComponent
+    KeyboardComponent,
+    PincodeComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,7 @@ import { KeyboardComponent } from './keyboard/keyboard.component';
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatInputModule,MatCardModule
+    MatInputModule, MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

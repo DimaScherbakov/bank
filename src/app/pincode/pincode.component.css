@@ -1,0 +1,23 @@
+.centered-container div {
+  width: 100px;
+  height: 100px;
+}
+.center{
+  margin: 10px auto;
+}
+.main-container{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-form{
+  display: flex;
+  flex-direction: column;
+}
+.wrongPinError{
+  margin: 0;
+  padding: 0 0 10px;
+  font-size: 12px;
+  color: red;
+}
