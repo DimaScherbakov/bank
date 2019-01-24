@@ -1,11 +1,29 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {RouterModule} from '@angular/router';
+import {AppRoutes} from './app.routing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material';
+
+import { InputCardComponent } from './input-card/input-card.component';
+import { PincodeComponent } from './pincode/pincode.component';
+import { OperationsComponent } from './operations/operations.component';
+import { KeyboardComponent } from './keyboard/keyboard.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports : [RouterModule, RouterModule.forRoot(AppRoutes, {useHash: true}),
+        FormsModule, ReactiveFormsModule,
+        MatFormFieldModule,
+        MatCardModule],
       declarations: [
-        AppComponent
+        AppComponent,
+        InputCardComponent,
+        PincodeComponent,
+        OperationsComponent,
+        KeyboardComponent
       ],
     }).compileComponents();
   }));
@@ -20,12 +38,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('bank-terminal');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to bank-terminal!');
   });
 });
