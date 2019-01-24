@@ -1,15 +1,24 @@
 import { Injectable } from '@angular/core';
+import * as DB from '../database';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
+
 })
 export class InputCardService {
-database: Array<string> = ['0000'];
+
+  currentId: string;
 
 isIdInDB(id: string): boolean {
-  return this.database.some((item) => {
-    return item === id;
+  let idExists = false;
+  DB.database.forEach((item) => {
+    if (item.id === id) {
+      this.currentId = id;
+      idExists = true;
+    }
   });
+  return idExists;
   }
-  constructor() { }
+
+  constructor() {}
 }
