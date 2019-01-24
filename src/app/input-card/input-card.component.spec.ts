@@ -39,8 +39,12 @@ describe('InputCardComponent', () => {
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(InputCardComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
+  });
+  it('value length info exists', () => {
+    expect(component.lengthData).toBeTruthy();
+  });
+  it('form exists', () => {
+    expect(component.options).toBeTruthy();
   });
 });

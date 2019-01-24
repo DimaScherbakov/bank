@@ -22,4 +22,8 @@ describe('KeyboardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('has attribute to save input value', () => {
+
+    expect(component.number).toBeTruthy();
+  });
 });

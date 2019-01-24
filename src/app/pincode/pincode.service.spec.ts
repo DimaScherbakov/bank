@@ -9,4 +9,8 @@ describe('PincodeService', () => {
     const service: PincodeService = TestBed.get(PincodeService);
     expect(service).toBeTruthy();
   });
+  it('has variable to count avaliable mistakes', () => {
+    const service: PincodeService = TestBed.get(PincodeService);
+    expect(service.counterMistakes).toBeTruthy();
+  });
 });

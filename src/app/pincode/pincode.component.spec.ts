@@ -41,4 +41,7 @@ describe('PincodeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('has form', () => {
+    expect(component.options).toBeTruthy();
+  });
 });

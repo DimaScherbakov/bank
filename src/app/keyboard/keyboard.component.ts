@@ -10,8 +10,6 @@ export class KeyboardComponent implements OnInit {
     constructor() { }
 
   ngOnInit() {
-  // console.log(this.keyboardMaxlength);
-
     }
   controlClick($event): void {
     const target = $event.target;

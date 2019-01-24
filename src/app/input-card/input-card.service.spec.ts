@@ -9,4 +9,8 @@ describe('InputCardService', () => {
     const service: InputCardService = TestBed.get(InputCardService);
     expect(service).toBeTruthy();
   });
+  it('wrong card ids are not avaliable', () => {
+    const service: InputCardService = TestBed.get(InputCardService);
+    expect(service.isIdInDB('123123123')).toEqual(false);
+  });
 });
