@@ -28,6 +28,7 @@
 
     </form>
   </mat-card>
+  <app-keyboard (number)="showNumber($event)" [keyboardAvaliableLength]="lengthData.avaliable "></app-keyboard>
 </div>
-<app-keyboard (number)="showNumber($event)" [keyboardAvaliableLength]="lengthData.avaliable "></app-keyboard>
+
 
