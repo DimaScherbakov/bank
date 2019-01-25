@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class InputCardComponent implements OnInit {
 lengthData = {
-  maxlength: 4,
+  maxlength: 16,
   valueLength: 0
 };
   options: FormGroup;
@@ -19,7 +19,7 @@ lengthData = {
               private router: Router) {
     this.options = fb.group({
       color: 'primary',
-      cardId: ['', Validators.pattern('^[0-9]*$')]
+      cardId: ['', [Validators.minLength(16), Validators.pattern('^[0-9]*$')]]
     });
     this.countAvaliableValue();
   }
