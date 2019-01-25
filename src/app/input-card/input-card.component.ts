@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {InputCardService} from './input-card.service';
 import {Router} from '@angular/router';
+import * as DB from '../database';
 
 @Component({
   selector: 'app-input-card',
@@ -16,15 +17,20 @@ lengthData = {
   options: FormGroup;
 
   constructor(fb: FormBuilder, private inputCardService: InputCardService,
-              private router: Router) {
+              private router: Router
+              ) {
     this.options = fb.group({
       color: 'primary',
       cardId: ['', [Validators.minLength(16), Validators.pattern('^[0-9]*$')]]
     });
     this.countAvaliableValue();
   }
-submit() {
 
+submit() {
+if (this.inputCardService.isBlocked(this.options.controls.cardId.value)) {
+  this.options.setErrors({'isBlocked': true});
+  return;
+}
 if (this.inputCardService.isIdInDB(this.options.controls.cardId.value)) {
   this.router.navigateByUrl('pincode');
 }

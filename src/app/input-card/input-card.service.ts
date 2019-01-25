@@ -11,6 +11,7 @@ export class InputCardService {
 
 isIdInDB(id: string): boolean {
   let idExists = false;
+
   DB.database.forEach((item) => {
     if (item.id === id) {
       this.currentId = id;
@@ -19,6 +20,11 @@ isIdInDB(id: string): boolean {
   });
   return idExists;
   }
-
+isBlocked(id: string): boolean {
+  const card = DB.database.find(item => {
+      return item.id === id;
+    });
+  return card.blocked;
+}
   constructor() {}
 }

@@ -7,14 +7,20 @@ import {InputCardService} from '../input-card/input-card.service';
 })
 export class PincodeService {
   counterMistakes = 3;
-// private pinCodes: Array<string> = ['1111'];
+  currentCard: any;
 
-  constructor(private inputCardService: InputCardService) { }
+  constructor(private inputCardService: InputCardService) {
+    this.findCurrentCard();
+  }
 
-  pinExist(pin): boolean {
-    const currentCard = DB.database.find(card => {
+  findCurrentCard() {
+    this.currentCard = DB.database.find(card => {
       return card.id === this.inputCardService.currentId;
     });
-    return currentCard.pin === pin;
+  }
+
+  pinExist(pin): boolean {
+    this.findCurrentCard();
+    return this.currentCard.pin === pin || false;
   }
 }

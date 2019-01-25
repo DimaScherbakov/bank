@@ -25,7 +25,9 @@ export class PincodeComponent implements OnInit {
     this.pincodeService.counterMistakes = this.pincodeService.counterMistakes - 1;
 
     if (this.pincodeService.counterMistakes <= 0) {
-    this.options.disable();
+      this.options.disable();
+      this.pincodeService.currentCard.blocked = true;
+      this.router.navigateByUrl('');
     return;
     }
     this.options.controls['pin'].setValue('');

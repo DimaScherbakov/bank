@@ -16,6 +16,9 @@
       <p class="error" *ngIf="options.hasError('wrongId')">
         Card ID is wrong
       </p>
+      <p class="error" *ngIf="options.hasError('isBlocked')">
+        Card is blocked
+      </p>
       <button
         class="mat-raised-button mat-accent submit-button"
         type="submit"
