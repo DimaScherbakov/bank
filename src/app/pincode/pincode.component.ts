@@ -28,7 +28,7 @@ export class PincodeComponent implements OnInit {
     this.options.disable();
     return;
     }
-
+    this.options.controls['pin'].setValue('');
     this.options.setErrors({'wrongPinError': true });
   }
   submit() {
