@@ -11,7 +11,7 @@
         />
       </mat-form-field>
       <p class="error" *ngIf="options.hasError('unavaliableLength')">
-        Card ID should be shorter
+        Card ID should be shorter than {{lengthData.maxlength}}
       </p>
       <p class="error" *ngIf="options.hasError('wrongId')">
         Card ID is wrong
