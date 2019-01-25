@@ -39,14 +39,15 @@ showNumber(event) {
   }
 }
 
-countAvaliableValue(){
+countAvaliableValue() {
   this.options.valueChanges.subscribe(() => {
     this.lengthData.valueLength = this.options.controls['cardId'].value.length;
     const avaliable = this.lengthData.maxlength - this.lengthData.valueLength;
 
-    if(avaliable < 0) {
+    if (avaliable < 0) {
       this.lengthData['avaliable'] = 0;
-      return
+      this.options.setErrors({'unavaliableLength': true});
+      return;
     }
     this.lengthData['avaliable'] = avaliable;
   });
