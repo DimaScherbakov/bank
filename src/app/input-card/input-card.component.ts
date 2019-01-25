@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class InputCardComponent implements OnInit {
 lengthData = {
-  maxlength: 16,
+  maxlength: 4,
   valueLength: 0
 };
   options: FormGroup;
@@ -21,6 +21,7 @@ lengthData = {
       color: 'primary',
       cardId: ['', Validators.pattern('^[0-9]*$')]
     });
+    this.countAvaliableValue();
   }
 submit() {
 
@@ -36,10 +37,19 @@ showNumber(event) {
   } else {
     this.options.controls['cardId'].setValue(oldValue + event);
   }
+}
 
-  this.lengthData.valueLength = this.options.controls['cardId'].value.length;
-  this.lengthData['avaliable'] = this.lengthData.maxlength - this.lengthData.valueLength;
+countAvaliableValue(){
+  this.options.valueChanges.subscribe(() => {
+    this.lengthData.valueLength = this.options.controls['cardId'].value.length;
+    const avaliable = this.lengthData.maxlength - this.lengthData.valueLength;
 
+    if(avaliable < 0) {
+      this.lengthData['avaliable'] = 0;
+      return
+    }
+    this.lengthData['avaliable'] = avaliable;
+  });
 }
   ngOnInit() {
   }

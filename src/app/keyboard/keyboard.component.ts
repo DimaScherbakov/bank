@@ -13,6 +13,7 @@ export class KeyboardComponent implements OnInit {
     }
   controlClick($event): void {
     const target = $event.target;
-    this.number.emit(target.getAttribute('value'));
+    if (target.getAttribute('value')) {
+      this.number.emit(target.getAttribute('value')); }
   }
 }
