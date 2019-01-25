@@ -13,6 +13,9 @@
       <p class="error" *ngIf="options.hasError('unavaliableLength')">
         Card ID should be shorter
       </p>
+      <p class="error" *ngIf="options.hasError('wrongId')">
+        Card ID is wrong
+      </p>
       <button
         class="mat-raised-button mat-accent submit-button"
         type="submit"

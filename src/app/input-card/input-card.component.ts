@@ -28,6 +28,8 @@ submit() {
 if (this.inputCardService.isIdInDB(this.options.controls.cardId.value)) {
   this.router.navigateByUrl('pincode');
 }
+this.options.controls['cardId'].setValue('');
+this.options.setErrors({'wrongId': true});
 }
 
 showNumber(event) {
