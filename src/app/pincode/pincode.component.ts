@@ -16,8 +16,11 @@ export class PincodeComponent implements OnInit {
               private router: Router) {
     this.options = fb.group({
       color: 'primary',
-      pin: ['', Validators.pattern('^[0-9]*$')]
+      pin: ['', [Validators.pattern('^[0-9]*$'), Validators.minLength(4)]]
     });
+    if (this.pincodeService.currentCard === undefined) {
+      this.router.navigate(['/']);
+    }
   }
   ngOnInit() {
   }

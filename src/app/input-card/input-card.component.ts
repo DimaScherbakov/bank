@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {InputCardService} from './input-card.service';
 import {Router} from '@angular/router';
-import * as DB from '../database';
 
 @Component({
   selector: 'app-input-card',
