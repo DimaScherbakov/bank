@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '@angular/router';
 import { Observable } from 'rxjs';
 import {PincodeService} from '../pincode/pincode.service';
 
@@ -7,10 +7,14 @@ import {PincodeService} from '../pincode/pincode.service';
   providedIn: 'root'
 })
 export class OperationsGuard implements CanActivate {
-  constructor(private pincodeService: PincodeService) {}
+  constructor(private pincodeService: PincodeService,
+              private router: Router) {}
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.pincodeService.currentCard) { return true; }
+    if (!this.pincodeService.currentCard) {
+      this.router.navigateByUrl('');
+      return false; }
+      return true;
   }
 }
