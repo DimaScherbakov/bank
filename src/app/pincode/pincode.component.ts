@@ -18,11 +18,11 @@ export class PincodeComponent implements OnInit {
       color: 'primary',
       pin: ['', [Validators.pattern('^[0-9]*$'), Validators.minLength(4)]]
     });
-    if (this.pincodeService.currentCard === undefined) {
-      this.router.navigate(['/']);
-    }
   }
   ngOnInit() {
+    if (!this.pincodeService.currentCard) {
+      this.router.navigate(['/']);
+    }
   }
   wrongPin() {
     this.pincodeService.counterMistakes = this.pincodeService.counterMistakes - 1;
