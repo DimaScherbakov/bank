@@ -26,11 +26,11 @@ lengthData = {
   }
 
 submit() {
-if (this.inputCardService.isBlocked(this.options.controls.cardId.value)) {
-  this.options.setErrors({'isBlocked': true});
-  return;
-}
 if (this.inputCardService.isIdInDB(this.options.controls.cardId.value)) {
+  if (this.inputCardService.isBlocked(this.options.controls.cardId.value)) {
+    this.options.setErrors({'isBlocked': true});
+    return;
+  }
   this.router.navigateByUrl('pincode');
 }
 this.options.controls['cardId'].setValue('');

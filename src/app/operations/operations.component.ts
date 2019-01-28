@@ -10,12 +10,11 @@ import {Router} from '@angular/router';
 export class OperationsComponent implements OnInit {
 
   constructor(private pincodeService: PincodeService,
-              private router : Router) {
-    console.log(this.pincodeService.currentCard);
-    if (this.pincodeService.currentCard === undefined)this.router.navigateByUrl('');
+              private router: Router) {
   }
 
   ngOnInit() {
+    if (this.pincodeService.currentCard === undefined) {this.router.navigateByUrl(''); }
   }
 
 }
