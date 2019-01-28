@@ -20,10 +20,6 @@ export class PincodeComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.pincodeService.findCurrentCard();
-    if (!this.pincodeService.currentCard) {
-      this.router.navigate(['/']);
-    }
   }
   wrongPin() {
     this.pincodeService.counterMistakes = this.pincodeService.counterMistakes - 1;

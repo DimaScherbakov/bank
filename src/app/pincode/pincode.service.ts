@@ -10,7 +10,6 @@ export class PincodeService {
   currentCard: any;
 
   constructor(private inputCardService: InputCardService ) {
-    // this.findCurrentCard();
   }
 
   findCurrentCard() {
