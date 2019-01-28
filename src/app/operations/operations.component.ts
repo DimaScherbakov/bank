@@ -14,7 +14,6 @@ export class OperationsComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.pincodeService.currentCard === undefined) {this.router.navigateByUrl(''); }
   }
 
 }
