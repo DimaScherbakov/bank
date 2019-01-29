@@ -13,9 +13,7 @@ export class PincodeGuard implements CanActivate {
 
   }
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+  canActivate(): Observable<boolean> | Promise<boolean> | boolean {
     this.pincodeService.findCurrentCard();
     if (!this.pincodeService.currentCard) {
       this.router.navigateByUrl('');

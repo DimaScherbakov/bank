@@ -10,8 +10,7 @@ export class OperationsGuard implements CanActivate {
   constructor(private pincodeService: PincodeService,
               private router: Router) {}
   canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    ): Observable<boolean> | Promise<boolean> | boolean {
     if (!this.pincodeService.currentCard) {
       this.router.navigateByUrl('');
       return false; }
