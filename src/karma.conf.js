@@ -17,7 +17,8 @@ module.exports = function (config) {
     },
     preprocessors: {'./app/*.ts':['coverage']},
     coverageReporter: {
-      type: 'text'
+      type: 'text',
+      file: 'output'
     },
     reporters: ['progress', 'kjhtml','coverage'],
     port: 9876,
