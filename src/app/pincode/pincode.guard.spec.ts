@@ -19,7 +19,7 @@ describe('PincodeGuard', () => {
   }));
   it('should pass the route when card with correct data exist (currentCard)', inject([PincodeGuard], () => {
     const guard = TestBed.get(PincodeGuard);
-    guard.pincodeService.findCurrentCard = () => { guard.pincodeService.currentCard = {};};
+    guard.pincodeService.findCurrentCard = () => { guard.pincodeService.currentCard = {}; };
     expect(guard.canActivate()).toEqual(true);
   }));
   it('should not pass the route when card is undefined (currentCard)', inject([PincodeGuard], () => {

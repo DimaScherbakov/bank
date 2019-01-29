@@ -12,7 +12,7 @@ import { InputCardComponent } from './input-card/input-card.component';
 import { KeyboardComponent } from './keyboard/keyboard.component';
 import { PincodeComponent } from './pincode/pincode.component';
 import { OperationsComponent } from './operations/operations.component';
-import  {PincodeGuard} from './pincode/pincode.guard';
+import {PincodeGuard} from './pincode/pincode.guard';
 
 @NgModule({
   declarations: [
