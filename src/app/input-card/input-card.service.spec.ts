@@ -17,4 +17,9 @@ describe('InputCardService', () => {
     const service: InputCardService = TestBed.get(InputCardService);
     expect(service.isBlocked('0000000000000000')).toEqual(false);
   });
+  it('isIdInDB finds only real card ids', () => {
+    const service: InputCardService = TestBed.get(InputCardService);
+    service.isIdInDB('0000000000000000');
+    expect(service.currentId).toEqual('0000000000000000');
+  });
 });

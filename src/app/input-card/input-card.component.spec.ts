@@ -11,6 +11,7 @@ import {KeyboardComponent} from '../keyboard/keyboard.component';
 import {AppRoutes} from '../app.routing';
 import {PincodeComponent} from '../pincode/pincode.component';
 import {OperationsComponent} from '../operations/operations.component';
+import {InputCardService} from './input-card.service';
 
 describe('InputCardComponent', () => {
   let component: InputCardComponent;
@@ -27,7 +28,8 @@ describe('InputCardComponent', () => {
       declarations: [ InputCardComponent,
         KeyboardComponent,
         PincodeComponent,
-        OperationsComponent]
+        OperationsComponent],
+      providers: [InputCardService]
     })
     .compileComponents();
   }));
@@ -46,5 +48,36 @@ describe('InputCardComponent', () => {
   });
   it('form exists', () => {
     expect(component.options).toBeTruthy();
+  });
+
+  it('submit does pass if card is blocked', () => {
+    const service = TestBed.get(InputCardService);
+    const spyOnIsIdInDB = spyOn(service, 'isIdInDB').and.returnValue(true);
+    const spyOnIsBlocked = spyOn(service, 'isBlocked').and.returnValue(true);
+    component.submit();
+    expect(service.isIdInDB).toHaveBeenCalled();
+    expect(service.isBlocked).toHaveBeenCalled();
+    expect(component.options.errors.isBlocked).toEqual( true);
+  });
+  it('submit does not pass if card id is wrong', () => {
+    const service = TestBed.get(InputCardService);
+    const spyOnIsIdInDB = spyOn(service, 'isIdInDB').and.returnValue(true);
+    const spyOnIsBlocked = spyOn(service, 'isBlocked').and.returnValue(false);
+    component.submit();
+    expect(component.options.controls.cardId.value).toEqual( '');
+    expect(component.options.errors['wrongId']).toEqual(true);
+  });
+it('showNumber method exists', () => {
+  expect(component.showNumber).toBeTruthy();
+});
+  it('showNumber method works with cancel button', () => {
+    const event = 'Cancel';
+    component.showNumber(event);
+    expect(component.options.controls['cardId']).toBeTruthy();
+  });
+  it('showNumber method works with number button', () => {
+    const event = '1';
+    component.showNumber(event);
+    expect(component.options.controls['cardId']).toBeTruthy();
   });
 });

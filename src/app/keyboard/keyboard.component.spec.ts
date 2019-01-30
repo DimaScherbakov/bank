@@ -23,7 +23,20 @@ describe('KeyboardComponent', () => {
     expect(component).toBeTruthy();
   });
   it('has attribute to save input value', () => {
-
     expect(component.number).toBeTruthy();
+  });
+  it('controlClick method exists', () => {
+    const event = {
+      target: {
+        getAttribute: () => 1
+      }
+    };
+    function controlClickMock() {
+      console.log('fake click');
+    }
+    // const spy = spyOn(component, 'controlClick').and.callFake(controlClickMock);
+
+    component.controlClick(event);
+    expect(component.controlClick).toBeTruthy();
   });
 });
